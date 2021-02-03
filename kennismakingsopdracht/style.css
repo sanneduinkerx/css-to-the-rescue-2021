@@ -1,0 +1,66 @@
+/* declaring custom properties 'light' mode */
+:root{
+    --font-family: 'Roboto Slab', serif; 
+    --color-background-light: rgb(231, 231, 231); /* background in lightmode */
+    --color-font-light: rgb(54, 54, 54); /* color font lightmode */
+
+    /* unit-less properties */
+    --scale: 200;
+}
+
+*{
+    font-family: var(--font-family);
+    color: var(--color-font-light);
+    margin: 0;
+}
+
+body{
+    background-color: var(--color-background-light);
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+div h1 {
+    font-size: 8em;
+    margin: 0;
+}
+
+div p{
+    padding: 2em;
+    width: calc(var(--scale) * 1.5px); /* appending a unit to a unit-less property with cacl(), --scale = 200 * 1.5px makes it 300px */
+    text-align: center;
+}
+
+/* source: https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode  for media query dark theme*/
+
+/* dark mode */
+
+@media (prefers-color-scheme: dark) {
+
+    /* custom properties light mode*/
+    :root {
+        --color-background-dark: rgb(54, 54, 54); /* background in darkmode */
+        --color-font-dark: rgb(226, 226, 226);   /* color font darkmode */
+        --font-weight: 400; /* font weight iets lichter*/
+    }
+
+   body{
+    background-color: var(--color-background-dark);
+}
+
+   div h1{
+    color: var(--color-font-dark);
+    font-weight: var(--font-weight);
+   }
+
+   div p {
+       background-color: var(--color-background-light);
+   }
+}
