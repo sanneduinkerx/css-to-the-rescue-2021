@@ -51,8 +51,8 @@ Een **tweede uitgangspunt** is dat je *geen* JS gebruikt (i.i.g. zo min mogelijk
 Voor dit vak ga ik experimenteren met de mogelijkheden voor CSS. Voor de eindopdracht heb ik gekozen voor de menu kaart en ga dit met vanille HTML en CSS maken en mee experimenteren. 
 
 ## informatie over eindopdracht
-[De eindopdracht](https://cmda-minor-web.github.io/css-to-the-rescue-2021/index.html)
-De [beoordelingscriteria voor de eindopdracht](https://cmda-minor-web.github.io/css-to-the-rescue-2021/beoordelingsformulier.html) op een rijte.
+- [De eindopdracht](https://cmda-minor-web.github.io/css-to-the-rescue-2021/index.html)
+- De [beoordelingscriteria voor de eindopdracht](https://cmda-minor-web.github.io/css-to-the-rescue-2021/beoordelingsformulier.html) op een rijte.
 
 # Week 1:
 In deze week heb ik een keuze gemaakt waar ik mee wil experimenteren, de menu kaart. Ik heb eerst een pinterestbord gemaakt om wat inspiratie op te doen als beginpunt. [Pinterest bord is hier de vinden](https://nl.pinterest.com/sanneduinker/css-to-the-rescue/)
@@ -66,5 +66,5 @@ En ik heb gekozen voor de volgende **restricties**:
 
 Inspiratie:
 
-![](img/inspo2.jpg)(img.inspo3.jpg)
+![](img/inspo2.jpg) [](img.inspo3.jpg)
 
