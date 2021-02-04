@@ -32,6 +32,7 @@ div h1 {
     margin: 0;
 }
 
+/* unit less custom property with calc() */
 div p{
     padding: 2em;
     width: calc(var(--scale) * 1.5px); /* appending a unit to a unit-less property with cacl(), --scale = 200 * 1.5px makes it 300px */
@@ -48,7 +49,7 @@ div p{
     :root {
         --color-background-dark: rgb(54, 54, 54); /* background in darkmode */
         --color-font-dark: rgb(226, 226, 226);   /* color font darkmode */
-        --font-weight: 400; /* font weight iets lichter*/
+        --font-weight: 400; /* font weight lighter*/
     }
 
    body{
