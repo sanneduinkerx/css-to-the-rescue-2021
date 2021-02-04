@@ -62,9 +62,8 @@ En ik heb gekozen voor de volgende **restricties**:
 - SVG toepassen met mask, shapes en filter
 - Responsive zonder media queries
 
-## Inspiratie & eerste schets
+## eerste schets
+<!-- inspiratie, beginpunt poster hier? -->
 
-Inspiratie:
-
-![](img/inspo2.jpg) [](img.inspo3.jpg)
+![](img/schetsv1.png) ![](img/inspo1.png)
 
