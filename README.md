@@ -66,3 +66,7 @@ En ik heb gekozen voor de volgende **restricties**:
 
 ## Inspiratie & eerste schets
 
+Inspiratie:
+
+![alt text](img/inspo1.jpg)
+
