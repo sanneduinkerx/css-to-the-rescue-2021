@@ -13,6 +13,16 @@ body{
     position: relative;
 }
 
+p, div{
+    font-weight: 300;
+}
+
+div{
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Russ & Daughters text */
 h1 {
     text-transform: uppercase;
     background-color: rgb(230, 81, 81);
@@ -26,30 +36,32 @@ h1 {
 
 header h1 span:not(:nth-child(3)){
     color: rgb(185, 169, 75);
+    font-weight: 600;
 }
 
-p, div{
-    font-weight: 300;
-}
-
-div{
-    font-style: italic;
-    font-weight: 700;
+body > header p{
+    text-align: center;
+    background-color: rgb(82, 150, 133);
+    color: white;
+    padding: 1em;
 }
 
 /* --------- LAYOUT --------- */
 
-/* grid */
+/* -- grid -- */
 body{
  display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(4, 1fr);
+ grid-template-columns: 1fr 0fr 1fr;
+ grid-template-rows: repeat(4, 1fr);
 }
 
-body header{
-    grid-area: span 4;
-    /* grid-column-start: 2; */
+body > header{
+    grid-area: 1 / 2 / 4 / 2;
+    height: 100vh;
+    background-color: rgb(230, 81, 81);
 }
+
+/* basics */
 
 article{
     width: 10em;
@@ -62,10 +74,11 @@ section{
     position: relative;
 }
 
+/* the dishes article positions */
+
 section article {
-    margin: 2em;
     text-align: right;
-    margin: 1em 1em 1em auto;
+    margin: 0em 0em 0em auto;
 }
 
 section article:nth-child(odd){
@@ -97,17 +110,6 @@ section:nth-child(even) header  {
     margin: 0 auto;
 
 }
-
-/* -- ::after -- */
-/* section:nth-child(3) header::after  {
-    content: "";
-    position: absolute;
-    background-color: darkgreen;
-    width: 8em;
-    height: 8em;
-    background-image: linear-gradient(circle, );
-
-} */
 
 /* blob background dishes*/
 
