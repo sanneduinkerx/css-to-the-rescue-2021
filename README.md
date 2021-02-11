@@ -57,7 +57,7 @@ Voor dit vak ga ik experimenteren met de mogelijkheden voor CSS. Voor de eindopd
 ### Uitdagingen
 - Blobs/vormpjes maken, met svg, clip-path, gradient of border-radius.
 - experimenteren met grid/layout
-- animeren
+- animeren met keyframes
 
 # Week 1:
 In deze week heb ik een keuze gemaakt waar ik mee wil experimenteren, de menu kaart. Ik heb eerst een pinterestbord gemaakt om wat inspiratie op te doen als beginpunt. [Pinterest bord is hier de vinden](https://nl.pinterest.com/sanneduinker/css-to-the-rescue/)
@@ -73,8 +73,15 @@ En ik heb gekozen voor de volgende **restricties**:
 ![](img/schetsv1.png)
 
 # Week 2
-2 themasessies gevolgd: vormpjes maken en animeren. Ik heb gespeeld met layout en geprobeerd mijn schets na te maken. Daarnaast heb ik ook blobs gemaakt en uitgeprobeerd met border-radius. 
+2 themasessies gevolgd: vormpjes maken en animeren. Ik heb gespeeld met layout en geprobeerd mijn schets na te maken. Daarnaast heb ik ook blobs gemaakt en uitgeprobeerd met border-radius. Ik heb een blobje geanimeerd met de border-radius en @keyframes.
 
+### To do's volgende week
+- Een vormpje maken met SVG, clip-path
+- verder animeren
+- Met typografie spelen
+- banner maken bij appetizing since 1924
+
+![](img/v1website.png)
 
 # Week 3
 
