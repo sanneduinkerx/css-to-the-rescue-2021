@@ -3,130 +3,182 @@
     margin: 0;
 }
 
+/* CUSTOM PROPERTIES */
+
+:root{
+
+    /* lettertype dikte */
+    --bold: 700;
+    --regular: 400;
+    --light: 300;
+
+    /* kleur */
+    --text-and-background: white;
+    --prime-color-red: rgb(230, 81, 81);
+    --prime-color-blue: rgb(82, 150, 133);
+    --prime-color-beige: rgb(201, 190, 155);
+    --gold: rgb(185, 169, 75);
+    --background: rgb(243, 238, 232);
+}
+
 /* --------- FONTS, TEXT --------- */
 
 body{
     font-family: 'Raleway', sans-serif;
-    background-color: rgb(243, 238, 232);
-    /* margin: 1em;
-    border: 1px solid rgb(105, 92, 75); */
-    position: relative;
+    background-color: var(--background);
 }
 
 p, div{
-    font-weight: 300;
+    font-weight: var(--light);
 }
 
 div{
     font-style: italic;
-    font-weight: 700;
-}
-
-/* Russ & Daughters text */
-h1 {
-    text-transform: uppercase;
-    background-color: rgb(230, 81, 81);
-    /* source: https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation*/
-    writing-mode: vertical-lr; /* */
-    text-orientation: upright;
-    padding: 1em;
-    color: white;
-    font-weight: 300;
-}
-
-header h1 span:not(:nth-child(3)){
-    color: rgb(185, 169, 75);
-    font-weight: 600;
-}
-
-body > header p{
-    text-align: center;
-    background-color: rgb(82, 150, 133);
-    color: white;
-    padding: 1em;
+    font-weight: var(--bold);
 }
 
 /* --------- LAYOUT --------- */
 
 /* -- grid -- */
 body{
- display: grid;
- grid-template-columns: 1fr 0fr 1fr;
- grid-template-rows: repeat(4, 1fr);
+    display: grid;
+    grid-template-columns: 1fr 0fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+   }
+   
+   body > header{
+       grid-area: 1 / 2 / 4 / 2; /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+       height: 100vh;
+       background-color: var(--prime-color-red);
+       
+       position: sticky;
+       top: 0;
+       z-index: 1;
+   }
+   
+   /* basics */
+   
+   article{
+       width: 10em;
+       margin: 1em;
+       padding: 1em;
+   }
+   
+   section{
+       margin: 2em;
+       padding: 0.5em;
+       border: 1px solid var(--gold);
+   }
+   
+   section header{
+       width: 10em;
+       padding: 1em;
+       margin: 0 auto;
+       text-align: center;
+   }
+   
+   /* the dishes article positions */
+   
+   section article {
+       text-align: right;
+       margin: 0em 0em 0em auto;
+   }
+   
+   section article:nth-child(odd){
+       text-align: left;
+       margin: 1em;
+   }
+
+/* -- RUSS& DAUGHTERS HEADER -- */
+h1 {
+    color: white;
+    font-weight: var(--light);
+    font-size: 4em;
+    text-transform: uppercase;
+    background-color:var(--prime-color-red);
+    padding: 3rem;
+    
+    /* source: https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation*/
+    writing-mode: vertical-lr; /* */
+    text-orientation: upright;
 }
 
-body > header{
-    grid-area: 1 / 2 / 4 / 2;
-    height: 100vh;
-    background-color: rgb(230, 81, 81);
-}
-
-/* basics */
-
-article{
-    width: 10em;
-    margin: 1em;
+body > header p{
+    text-align: center;
+    background-color:var(--prime-color-blue);
+    color: white;
     padding: 1em;
-}
-
-section{
-    margin: 2em;
+    margin: 0 auto;
+    /* width: 6rem; */
     position: relative;
+    bottom: 5rem;
 }
 
-/* the dishes article positions */
-
-section article {
-    text-align: right;
-    margin: 0em 0em 0em auto;
+header h1 span:not(:nth-child(3)){
+    color: var(--gold);
+    font-weight: var(--bold);
 }
 
-section article:nth-child(odd){
-    text-align: left;
-    margin: 1em
+/*************************/
+/* ::before and ::after */
+
+
+
+/**************************************************/
+/**************************************************/
+
+/* -------- ANIMATIONS -------- */
+
+@keyframes blob-move-1 {
+    0% {
+      border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    }
+
+    50% {
+        background-color:  rgb(54, 88, 79);
+      border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+    }
+
+    100% {
+      border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    }
 }
 
+/****************************************/
 /* --------- de BLOB/vormpjes --------- */
 
 /* blob headers */
 
 section:nth-child(odd) header  {
-    background-color: rgb(82, 150, 133);
+    background-color: var( --prime-color-blue);
     color: white;
     border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
-    width: 8em;
-    padding: 1em;
-    margin: 0 auto;
-    text-align: center;
+    
+    animation-name: blob-move-1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 section:nth-child(even) header  {
     color: white;
-    background-color: rgb(201, 190, 155);
+    background-color: var(--prime-color-beige);
     border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
-    width: 8em;
-    padding: 1em;
-    text-align: center;
-    margin: 0 auto;
-
 }
 
 /* blob background dishes*/
 
- section:first-of-type article:nth-child(2){
+ section:first-of-type article:nth-child(3n + 2){
     background-color:white;
-    /* color: white; */
     border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
   }
 
-  section:first-of-type article:nth-child(3){
+  section:first-of-type article:nth-child(3n + 3){
     background-color:white;
-    /* color: white; */
     border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
   }
 
-  section:first-of-type article:nth-child(4){
-    /* color: white; */
+  section:first-of-type article:nth-child(3n + 4){
     background-color:white;
     border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
   }
