@@ -75,13 +75,63 @@ En ik heb gekozen voor de volgende **restricties**:
 # Week 2
 2 themasessies gevolgd: vormpjes maken en animeren. Ik heb gespeeld met layout en geprobeerd mijn schets na te maken. Daarnaast heb ik ook blobs gemaakt en uitgeprobeerd met border-radius. Ik heb een blobje geanimeerd met de border-radius en @keyframes.
 
+## Code - Blob en Animation
+**Animation**
+```
+
+@keyframes blob-move-1 {
+    0% {
+      border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    }
+
+    50% {
+        background-color:  rgb(54, 88, 79);
+      border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+    }
+
+    100% {
+      border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    }
+}
+
+section:nth-child(odd) header  {
+    background-color: var( --prime-color-blue);
+    color: white;
+    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    
+    animation-name: blob-move-1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+```
+**Blobs**
+```
+
+section:first-of-type article:nth-child(3n + 2){
+    background-color:white;
+    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+  }
+
+  section:first-of-type article:nth-child(3n + 3){
+    background-color:white;
+    border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
+  }
+
+  section:first-of-type article:nth-child(3n + 4){
+    background-color:white;
+    border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+  }
+```
+
+![](img/v1website.png)
+
 ### To do's volgende week
 - Een vormpje maken met SVG, clip-path
 - verder animeren
 - Met typografie spelen
 - banner maken bij appetizing since 1924
-
-![](img/v1website.png)
+- zonder media queries responsive
 
 # Week 3
 
