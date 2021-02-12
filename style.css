@@ -67,7 +67,8 @@ body{
    section{
        margin: 2em;
        padding: 0.5em;
-       border: 1px solid var(--gold);
+       /* border: 1px solid var(--gold); */
+       /* position: relative; */
    }
    
    section header{
@@ -95,7 +96,7 @@ h1 {
     font-weight: var(--light);
     font-size: 4em;
     text-transform: uppercase;
-    background-color:var(--prime-color-red);
+    /* background-color:var(--prime-color-red); */
     padding: 3rem;
     
     /* source: https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation*/
@@ -129,7 +130,7 @@ body > header p::before{
     right: 80%;
     height: 4rem;
     background-color:rgb(54, 88, 79);
-    /* z-index: -1; */
+    z-index: -1;
 }
 
 /**************************************************/
@@ -174,6 +175,8 @@ section:nth-child(odd) header  {
     animation-duration: 12s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    /* position: sticky;
+    top: 0; */
 }
 
 section:nth-child(even) header  {
@@ -198,4 +201,3 @@ section:nth-child(even) header  {
     background-color:white;
     border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
   }
-  
