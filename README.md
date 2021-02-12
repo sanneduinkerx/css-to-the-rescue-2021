@@ -84,13 +84,21 @@ En ik heb gekozen voor de volgende **restricties**:
       border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
     }
 
+    25% {
+      border-radius: 48% 37% 48% 32% / 41% 32% 61% 45% ;
+    }
+
     50% {
         background-color:  rgb(54, 88, 79);
-      border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+        border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
+    }
+
+    75% {
+        border-radius: 48% 37% 48% 32% / 41% 32% 61% 45% ;
     }
 
     100% {
-      border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+        border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
     }
 }
 
@@ -100,7 +108,7 @@ section:nth-child(odd) header  {
     border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
     
     animation-name: blob-move-1;
-    animation-duration: 5s;
+    animation-duration: 12s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
