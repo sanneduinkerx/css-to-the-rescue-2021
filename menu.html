@@ -14,7 +14,26 @@
 <body>
 
 	<header>
-		<h1><span>Russ</span> <span>&</span> <span>Daughters</span></h1>
+		<h1>
+			<span>Russ</span> 
+			<span>&</span> 
+			<svg>
+				<defs>
+					<filter id="outline-text">
+						<!-- feMorphology: om svg te vergroten of te verkleinen, in dit geval met 3 vergroot-->
+						<!-- SourceGraphic: source waarop filter wordt toegepast, bijvoorbeeld de span met 'Russ' -->
+						<feMorphology in="SourceGraphic" operator="dilate" radius="1.8" result="dilated"/>
+							<!-- more info: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMorphology -->
+						<!-- feComposite: net zoals bij illustrator pathfinder, kan je het snijden-->
+						<!-- in="dilated": result van feMorphology in de composite-->
+						<feComposite in="dilated" in2="SourceGraphic" operator="out"/>
+					</filter>
+				</defs>
+			</svg>
+
+			<span>Daughters</span>
+		</h1>
+
 		  <p>appetizing since 1924</p>
 	  
 	</header>
@@ -230,13 +249,15 @@
 	<h2>salads</h2>
 
 	<article>
-		<h3>Mixed Green<div>9</div></h3>
+		<h3>Mixed Green</h3>
 		<p>greens, fennel, dill, capers, citrus dressing</p>
+		<div>9</div>
 	</article>
 
 	<article>
-		<h3>Chopped Salad<div>14</div></h3>
+		<h3>Chopped Salad</h3>
 		<p>smoked whitefish, avocado, beets, egg, apple, mixed greens, matzo, buttermilk dressing</p>
+		<div>14</div>
 	</article>
 
 	<article>
@@ -307,6 +328,8 @@
 	</article>
 
 </section>
+
+<div></div>
 
 <!-- HTML taken and adjusted from https://codepen.io/julesforrest/pen/VqXvgQ -->
 

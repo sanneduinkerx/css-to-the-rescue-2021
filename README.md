@@ -132,6 +132,8 @@ section:first-of-type article:nth-child(3n + 2){
   }
 ```
 
+## Resultaat deze week:
+
 ![](img/v1website.png)
 
 ### To do's volgende week
@@ -142,5 +144,88 @@ section:first-of-type article:nth-child(3n + 2){
 - zonder media queries responsive
 
 # Week 3
+Deze week heb ik gespeeld met de svg filter en mijn ontwerp verder uitgewerkt. Ik heb ook de banner uitgewerkt.
+
+## Banner
+
+Ik had wat issues met de stack volgorde z-index, omdat ik meerdere backgroundcolors had gebruikt binnen mijn header.
+
+```
+body > header p::before{
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: 80%;
+    top: 30%;
+    z-index: -1;
+    background-image: 
+    linear-gradient(to right top, transparent 50%, rgb(54, 88, 79) 50%),
+    linear-gradient(to right bottom, transparent 50%, rgb(54, 88, 79) 50%);
+}
+
+body > header p::after{
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    left: 80%;
+    top: 30%;
+    z-index: -1;
+    background-image: 
+    linear-gradient(to left top, transparent 50%, rgb(54, 88, 79) 50%),
+    linear-gradient(to left bottom, transparent 50%, rgb(54, 88, 79) 50%);
+}
+```
+
+## SVG filter:
+Ik heb geleerd hoe je filters toepast op svg binnen de html, dat was compleet nieuw voor mij. En je dat in de css daar naartoe linkt.
+
+**HTML:**
+```
+<svg>
+				<defs>
+					<filter id="outline-text">
+						<!-- feMorphology: om svg te vergroten of te verkleinen, in dit geval met 3 vergroot-->
+						<!-- SourceGraphic: source waarop filter wordt toegepast, bijvoorbeeld de span met 'Russ' -->
+						<feMorphology in="SourceGraphic" operator="dilate" radius="1.5" result="dilated"/>
+							<!-- more info: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMorphology -->
+						<!-- feComposite: net zoals bij illustrator pathfinder, kan je het snijden-->
+						<!-- in="dilated": result van feMorphology in de composite-->
+						<feComposite in="dilated" in2="SourceGraphic" operator="out"/>
+					</filter>
+				</defs>
+			</svg>
+
+```
+
+**CSS:**
+
+```
+body > header h1 span:not(:nth-child(4)){
+    background-image: linear-gradient(45deg, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 50%, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 100%);
+    background-size: 200% 200%;
+    animation-name: golden-glow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+    /* CUT OUT clipping: https://css-tricks.com/how-to-do-knockout-text/ */
+    background-attachment: fixed;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    filter: url(#outline-text);
+}
+```
+
+## Resultaat deze week:
+![]()
+
+### To do's:
+- Een vormpje maken met SVG, clip-path
+- verder animeren
+- Met typografie spelen
+- zonder media queries responsive
 
 # Week 4

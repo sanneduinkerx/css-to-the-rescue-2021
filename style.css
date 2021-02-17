@@ -17,7 +17,7 @@
     --prime-color-red: rgb(230, 81, 81);
     --prime-color-blue: rgb(82, 150, 133);
     --prime-color-beige: rgb(201, 190, 155);
-    --gold: rgb(185, 169, 75);
+    --gold: #b9a94b;
     --background: rgb(243, 238, 232);
 }
 
@@ -43,7 +43,8 @@ div{
 body{
     display: grid;
     grid-template-columns: 1fr 0fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 0fr);
+    row-gap: 1em;
    }
    
    body > header{
@@ -59,20 +60,20 @@ body{
    /* basics */
    
    article{
-       width: 10em;
+        width: 10em;
        margin: 1em;
        padding: 1em;
    }
    
    section{
        margin: 2em;
-       padding: 0.5em;
-       /* border: 1px solid var(--gold); */
-       /* position: relative; */
+       padding: 1em;
+       position: relative;
+       border: 1px solid white;
    }
    
-   section header{
-       width: 10em;
+   section header, section > h2{
+       width: 10rem;
        padding: 1em;
        margin: 0 auto;
        text-align: center;
@@ -90,17 +91,32 @@ body{
        margin: 1em;
    }
 
+   section article div:last-of-type {
+    width: 13px;
+    height: 13px;
+    background-color: lightgrey;
+}
+
 /* -- RUSS& DAUGHTERS HEADER -- */
+
+body > header {
+    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    /* padding: 0em 4em; */
+
+}
+
 h1 {
     color: white;
     font-weight: var(--light);
-    font-size: 4em;
+    font-size: 52px;
     text-transform: uppercase;
-    /* background-color:var(--prime-color-red); */
-    padding: 3rem;
+    margin: .5em 1em;
     
     /* source: https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation*/
-    writing-mode: vertical-lr; /* */
+    writing-mode: vertical-lr; 
     text-orientation: upright;
 }
 
@@ -111,32 +127,90 @@ body > header p{
     padding: 1em;
     margin: 0 auto;
     width: 6rem;
+    height: 2.5rem;
     position: relative;
-    bottom: 6rem;
 }
 
-header h1 span:not(:nth-child(3)){
+header h1 span:not(:nth-child(4)){
+    /* 4th child because of the filter svg*/
     color: var(--gold);
     font-weight: var(--bold);
 }
 
 /*************************/
-/* ::before and ::after */
+/*************************/
+/* SVG FILTER MET OUTLINING TEXT*/
+
+svg{
+    /* anders is er een leeg vlak op de browser */
+    width: 0;
+    height: 0;
+}
+
+body > header h1 span:not(:nth-child(4)){
+    background-image: linear-gradient(45deg, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 50%, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 100%);
+    background-size: 200% 200%;
+    animation-name: golden-glow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+    /* CUT OUT clipping: https://css-tricks.com/how-to-do-knockout-text/ */
+    background-attachment: fixed;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    filter: url(#outline-text);
+}
+
+/*************************/
+/* ::before and ::after banner*/
 
 body > header p::before{
     content: "";
     position: absolute;
     width: 4rem;
-    right: 80%;
     height: 4rem;
-    background-color:rgb(54, 88, 79);
+    right: 80%;
+    top: 30%;
     z-index: -1;
+    background-image: 
+    linear-gradient(to right top, transparent 50%, rgb(54, 88, 79) 50%),
+    linear-gradient(to right bottom, transparent 50%, rgb(54, 88, 79) 50%);
+}
+
+body > header p::after{
+    content: "";
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    left: 80%;
+    top: 30%;
+    z-index: -1;
+    background-image: 
+    linear-gradient(to left top, transparent 50%, rgb(54, 88, 79) 50%),
+    linear-gradient(to left bottom, transparent 50%, rgb(54, 88, 79) 50%);
 }
 
 /**************************************************/
 /**************************************************/
 
 /* -------- ANIMATIONS -------- */
+
+/* RUSS title */
+
+
+@keyframes golden-glow {
+    0% {
+        background-position: left;
+    } 
+    100% {
+        background-position: right top;
+    }
+}
+
+
+/* header blobs */
 
 @keyframes blob-move-1 {
     0% {
@@ -164,40 +238,81 @@ body > header p::before{
 /****************************************/
 /* --------- de BLOB/vormpjes --------- */
 
-/* blob headers */
+/* -- blob headers -- */
 
-section:nth-child(odd) header  {
+section:nth-child(odd) header, section:nth-child(odd) > h2  {
     background-color: var( --prime-color-blue);
     color: white;
     border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
-    
     animation-name: blob-move-1;
     animation-duration: 12s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    /* position: sticky;
-    top: 0; */
+    position: relative;
 }
 
-section:nth-child(even) header  {
+section:nth-child(even) header, section:nth-child(even) > h2   {
     color: white;
     background-color: var(--prime-color-beige);
     border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+    position: relative;
 }
 
-/* blob background dishes*/
+/*  blob border gold */
 
- section:first-of-type article:nth-child(3n + 2){
+section header::before, section > h2::before  {
+    content: "";
+    position: absolute;
+    width: 11rem;
+    height: 6rem;
+    right: 0%;
+    top: -5%;
+    border: 1px solid var( --gold);
+    border-radius: 69% 22% 51% 38% / 56% 46% 40% 29% ;
+}
+
+/* -- blob background dishes -- */
+
+ section article:nth-child(3n + 2){
     background-color:white;
     border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
   }
 
-  section:first-of-type article:nth-child(3n + 3){
+  section article:nth-child(3n + 3){
     background-color:white;
     border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
   }
 
-  section:first-of-type article:nth-child(3n + 4){
+  section article:nth-child(3n + 4){
     background-color:white;
     border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
   }
+
+  /* vormpjes */
+
+section:last-of-type blockquote::before {
+      content: "";
+      position: absolute;;
+      width: 6em;
+      height: 7em;
+      top: 0;
+      border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
+      background-image: /*radial-gradient(at top right, rgb(187, 70, 70) 50%, var(--prime-color-red) 50%),*/
+      radial-gradient( rgb(187, 70, 70) 50%, var(--prime-color-red) 50%); 
+      /* opacity: 0.8; */
+      /* z-index: -1; */
+  }
+
+  section:last-of-type blockquote::after {
+    content: "";
+    position: absolute;;
+    width: 4em;
+    height: 5em;
+    left: 5em;
+    border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
+    background-image: radial-gradient(var(--prime-color-red) 50%, rgb(187, 70, 70) 50%); 
+    transform: rotate(60deg)
+    /* opacity: 0.8; */
+    /* z-index: -1; */
+}
+  
