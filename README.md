@@ -233,10 +233,12 @@ En na aanleiding heb ik ook een vormpje via illustrator als svg gemaakt en in de
 ![](img/v2resultaat.png)
 
 ### To do's:
-- Een vormpje maken met SVG en filter
+- vormpjes maken met SVG en filter
 - meer interactie: menu maken - states
 - afbeeldingen met clip-path
 - zonder media queries responsive
 - andere dingen: :target, drop-shadow bij de blobs, grid section overlapping
 
 # Week 4
+
+# Reflectie

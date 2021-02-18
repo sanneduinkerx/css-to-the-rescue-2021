@@ -3,7 +3,9 @@
     margin: 0;
 }
 
-/* CUSTOM PROPERTIES */
+/****************************/
+/* -- CUSTOM PROPERTIES -- */
+/***************************/
 
 :root{
 
@@ -21,7 +23,9 @@
     --background: rgb(243, 238, 232);
 }
 
+/************************************/
 /* --------- FONTS, TEXT --------- */
+/**********************************/
 
 body{
     font-family: 'Raleway', sans-serif;
@@ -37,9 +41,12 @@ div{
     font-weight: var(--bold);
 }
 
+/*******************************/
 /* --------- LAYOUT --------- */
+/*****************************/
 
-/* -- grid -- */
+/* -- GRID -- */
+
 body{
     display: grid;
     grid-template-columns:  1fr 0fr 1fr;
@@ -56,7 +63,7 @@ body{
        z-index: 1;
    }
    
-   /* basics */
+/* -- BASICS -- */
    
    article{
         width: 10em;
@@ -82,7 +89,7 @@ body{
        text-align: center;
    }
    
-   /* the dishes article positions */
+   /* -- de gerechten - article positions -- */
    
    section article {
        text-align: right;
@@ -100,7 +107,11 @@ body{
     background-color: lightgrey;
 }
 
-/* -- RUSS& DAUGHTERS HEADER -- */
+/*********************************/
+/* ---------- HEADER -----------*/ 
+/*******************************/
+
+/* -- Russ & Daughters -- */
 
 body > header {
     align-items: center;
@@ -140,9 +151,8 @@ header h1 span:not(:nth-child(4)){
     font-weight: var(--bold);
 }
 
-/*************************/
-/*************************/
-/* SVG FILTER MET OUTLINING TEXT*/
+/**********************/
+/* -- SVG FILTERS -- */
 
 svg:not(section:last-of-type > svg){
     /* anders is er een leeg vlak op de browser */
@@ -166,7 +176,7 @@ body > header h1 span:not(:nth-child(4)){
     filter: url(#outline-text);
 }
 
-/*************************/
+/*******************************/
 /* ::before and ::after banner*/
 
 body > header p::before{
@@ -195,12 +205,129 @@ body > header p::after{
     linear-gradient(to left bottom, transparent 50%, rgb(54, 88, 79) 50%);
 }
 
-/**************************************************/
-/**************************************************/
+/******************************************************/
+/* ---------- MAIN SECTIONS (the courses) -----------*/ 
+/****************************************************/
 
+/*********************************/
+/* --------- de BLOBS --------- */
+
+/* -- BLOB - headers in section -- */
+
+section:nth-child(odd) header, section:nth-child(odd) > h2  {
+    background-color: var( --prime-color-blue);
+    color: white;
+    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+    animation-name: blob-move-1;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+
+section:nth-child(even) header, section:nth-child(even) > h2   {
+    color: white;
+    background-color: var(--prime-color-beige);
+    border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+    position: relative;
+    animation-name: blob-move-2;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+/* -- BLOB - border gold -- */
+
+section header::before, section > h2::before  {
+    content: "";
+    position: absolute;
+    width: 11rem;
+    height: 6rem;
+    right: 0%;
+    top: -5%;
+    border: 1px solid var( --gold);
+    border-radius: 69% 22% 51% 38% / 56% 46% 40% 29% ;
+}
+
+/* -- BLOB - gerechten -- */
+
+section article:nth-child(3n + 2){
+    background-color:white;
+    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
+}
+
+section article:nth-child(3n + 3){
+    background-color:white;
+    border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
+}
+
+section article:nth-child(3n + 4){
+    background-color:white;
+    border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
+}
+
+  /* -- Blobs - moving -- */
+
+section:first-of-type:hover article:nth-child(3n + 2){
+    animation-name: blob-transform;
+    animation-timing-function: ease;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+/*********************************/
+/* --------- VORMPJES --------- */
+
+section:last-of-type svg {
+      width: 5em;
+      position: absolute;
+      top: 0;
+      left: 20%;
+      transform: rotate(-20deg);
+}
+
+section:last-of-type svg:nth-child(2) {
+    width: 2.5em;
+    position: absolute;
+    top: 5%;
+    left: 32%;
+    transform: rotate(45deg);
+    z-index: 2;
+    filter: drop-shadow(rgb(95, 95, 95) 6px 2px 10px);
+}
+
+/* 
+section:last-of-type blockquote::before {
+      content: "";
+      position: absolute;;
+      width: 6em;
+      height: 7em;
+      top: 0;
+      border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
+      background-image: /*radial-gradient(at top right, rgb(187, 70, 70) 50%, var(--prime-color-red) 50%),*/
+      /* radial-gradient( rgb(187, 70, 70) 50%, var(--prime-color-red) 50%);  */
+      /* opacity: 0.8; */
+      /* z-index: -1; */
+  /* } */
+/* 
+  section:last-of-type blockquote::after {
+    content: "";
+    position: absolute;;
+    width: 4em;
+    height: 5em;
+    left: 5em;
+    border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
+    background-image: radial-gradient(var(--prime-color-red) 50%, rgb(187, 70, 70) 50%); 
+    transform: rotate(60deg)
+    opacity: 0.8; */
+    /* z-index: -1;
+} */
+
+/*********************************/
 /* -------- ANIMATIONS -------- */
+/*******************************/
 
-/* RUSS title */
+/* -- RUSS title -- */
 
 
 @keyframes golden-glow {
@@ -213,7 +340,7 @@ body > header p::after{
 }
 
 
-/* header blobs */
+/* -- blob header in sections -- */
 
 @keyframes blob-move-1 {
     0% {
@@ -261,6 +388,8 @@ body > header p::after{
     }
 }
 
+/* -- blob gerechten bewegen van plaats -- */
+
 @keyframes blob-transform {
     0% {
         transform: translateX(0rem);
@@ -283,117 +412,3 @@ body > header p::after{
     }
 }
 
-
-/****************************************/
-/* --------- de BLOB/vormpjes --------- */
-
-/* -- blob headers -- */
-
-section:nth-child(odd) header, section:nth-child(odd) > h2  {
-    background-color: var( --prime-color-blue);
-    color: white;
-    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
-    animation-name: blob-move-1;
-    animation-duration: 13s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    position: relative;
-}
-
-section:nth-child(even) header, section:nth-child(even) > h2   {
-    color: white;
-    background-color: var(--prime-color-beige);
-    border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
-    position: relative;
-    animation-name: blob-move-2;
-    animation-duration: 13s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
-}
-
-/*  blob border gold */
-
-section header::before, section > h2::before  {
-    content: "";
-    position: absolute;
-    width: 11rem;
-    height: 6rem;
-    right: 0%;
-    top: -5%;
-    border: 1px solid var( --gold);
-    border-radius: 69% 22% 51% 38% / 56% 46% 40% 29% ;
-}
-
-/* -- blob background dishes -- */
-
- section article:nth-child(3n + 2){
-    background-color:white;
-    border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
-  }
-
-  section article:nth-child(3n + 3){
-    background-color:white;
-    border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
-  }
-
-  section article:nth-child(3n + 4){
-    background-color:white;
-    border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
-  }
-
-  /* blob moving */
-
-  section:first-of-type:hover article:nth-child(3n + 2){
-    animation-name: blob-transform;
-    animation-timing-function: ease;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-  }
-
-  /* vormpjes */
-
-  section:last-of-type svg {
-      width: 5em;
-      position: absolute;
-      top: 0;
-      left: 20%;
-      transform: rotate(-20deg);
-  }
-
-  section:last-of-type svg:nth-child(2) {
-    width: 2.5em;
-    position: absolute;
-    top: 5%;
-    left: 32%;
-    transform: rotate(45deg);
-    z-index: 2;
-    filter: drop-shadow(rgb(95, 95, 95) 6px 2px 10px);
-}
-
-
-/* 
-section:last-of-type blockquote::before {
-      content: "";
-      position: absolute;;
-      width: 6em;
-      height: 7em;
-      top: 0;
-      border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
-      background-image: /*radial-gradient(at top right, rgb(187, 70, 70) 50%, var(--prime-color-red) 50%),*/
-      /* radial-gradient( rgb(187, 70, 70) 50%, var(--prime-color-red) 50%);  */
-      /* opacity: 0.8; */
-      /* z-index: -1; */
-  /* } */
-/* 
-  section:last-of-type blockquote::after {
-    content: "";
-    position: absolute;;
-    width: 4em;
-    height: 5em;
-    left: 5em;
-    border-radius: 30% 30% 51% 50% / 37% 40% 60% 63%;
-    background-image: radial-gradient(var(--prime-color-red) 50%, rgb(187, 70, 70) 50%); 
-    transform: rotate(60deg)
-    opacity: 0.8; */
-    /* z-index: -1;
-} */
