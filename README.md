@@ -219,13 +219,24 @@ body > header h1 span:not(:nth-child(4)){
 }
 ```
 
+Ik had niet zo heel veel inspiratie meer dus ik had de sessie los met de heupen CSS bijgewoont. Daar kreeg ik goeie tips om een menu te maken en dan wat meer interactie binnen het ontwerp te doen. Met bijvoorbeeld :target. En misschien met clip-path afbeeldingen uit te snijden en dan bij de gerechten te plaatsen. Ook kreeg ik als idee om bij elke groep zoals Noshes een vormpje naast de titel te doen. Of met drop-shadow werken. En misschien om bij de sections dan met de grid het over elkaar te plaatsen.
+
+Hiervanuit had ik een nieuwe schets gemaakt om verder te kunnen met mijn ontwerp: 
+
+![](img/newdesign.jpeg)
+
+En na aanleiding heb ik ook een vormpje via illustrator als svg gemaakt en in de index.html geplaatst. 
+
+![](img/vormpje.png)
+
 ## Resultaat deze week:
-![]()
+![](img/v2resultaat.png)
 
 ### To do's:
-- Een vormpje maken met SVG, clip-path
-- verder animeren
-- Met typografie spelen
+- Een vormpje maken met SVG en filter
+- meer interactie: menu maken - states
+- afbeeldingen met clip-path
 - zonder media queries responsive
+- andere dingen: :target, drop-shadow bij de blobs, grid section overlapping
 
 # Week 4
