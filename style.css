@@ -122,9 +122,8 @@ header  h1 span:not(:nth-child(4)){
 
 header ul li a {
     color: white;
-    border-radius: 0% 100% 99% 0% / 100% 36% 41% 15% ;
     font-size: 18px;
-    padding: 3em 1em;
+    padding: 4em 2em;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -154,13 +153,6 @@ header ul:first-of-type li {
     transform: rotate(180deg); /* rotate de list items, probeerde eerst bij ul maar volgorde was verkeerd*/
 }
 
-/* header ul:first-of-type li:nth-child(even), header ul:last-of-type li:nth-child(odd) {
-    background-color: var(--prime-color-blue);
-}
-
-header ul:first-of-type li:nth-child(odd), header ul:last-of-type li:nth-child(even) {
-    background-color: var(--prime-color-beige);
-} */
 
 /***************************/
 /* ------- STATES ------- */
@@ -173,12 +165,19 @@ header ul li a:hover {
     
 }
 
-/*************/
+/* focus */
+
+header ul li a:focus {
+    background-color: var(--prime-color-red);
+    /* cursor: pointer; */
+    outline: none;
+}
+
 /* :target */
 
-#noshes:target {
-    /* background-color: #b9a94b; */
-}
+#noshes:target article:nth-child(3n){
+
+} 
 
 
 /**********************/
@@ -356,7 +355,7 @@ section:last-of-type svg {
       width: 5em;
       position: absolute;
       top: 0;
-      left: 1em%;
+      left: 1em;
       transform: rotate(-20deg);
 }
 
@@ -364,7 +363,7 @@ section:last-of-type svg:nth-child(2) {
     width: 2.5em;
     position: absolute;
     top: 0.2em;
-    left: 0.5em%;
+    left: 0.5em;
     transform: rotate(45deg);
     z-index: 2;
     filter: drop-shadow(rgb(95, 95, 95) 6px 2px 10px);
@@ -486,3 +485,28 @@ section:last-of-type blockquote::before {
     }
 }
 
+
+
+/***************************************/
+/* -------- print-style sheet -------- */
+/*************************************/
+
+@media print {
+    header ul {
+        display: none;
+    }
+
+    svg{
+        display: none;
+    }
+
+    body{
+        /* font-family: 'Raleway', sans-serif; */
+        background-color: rgb(68, 68, 68);
+    }
+
+    section article {
+        color: white;
+        background-color: rgb(56, 56, 56);
+    }
+}
