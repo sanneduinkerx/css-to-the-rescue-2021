@@ -234,11 +234,13 @@ En na aanleiding heb ik ook een vormpje via illustrator als svg gemaakt en in de
 
 ### To do's:
 - vormpjes maken met SVG en filter
+- vormpjes volledig css
 - meer interactie: menu maken - states
 - afbeeldingen met clip-path
 - zonder media queries responsive
+- meer animeren
 - andere dingen: :target, drop-shadow bij de blobs, grid section overlapping
 
-# Week 4
-
 # Reflectie
+
+Waarmee geexperimenteerd, wat geleerd.
