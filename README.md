@@ -229,6 +229,8 @@ En na aanleiding heb ik ook een vormpje via illustrator als svg gemaakt en in de
 
 ![](img/vormpje.png)
 
+Ik heb gekozen om in plaats van te kiezen voor de context prefers-color-scheme te gaan voor print-stylesheet. Dat leek me interessant omdat ik daar nog niet mee gewerkt hebt.
+
 ## Resultaat deze week:
 ![](img/v2resultaat.png)
 
