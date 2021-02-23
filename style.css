@@ -22,7 +22,7 @@
     --prime-color-beige: rgb(201, 190, 155);
     --dark-beige: rgb(122, 117, 101);
     --dark-blue: rgb(54, 88, 79);
-    --gold: #b9a94b;
+    --gold: hsl(51, 44%, 51%);
     --background: rgb(243, 238, 232);
 }
 
@@ -45,6 +45,10 @@ div{
 
 a{
     font-weight: var(--bold);
+}
+
+h2 {
+    text-transform: capitalize;
 }
 
 
@@ -491,6 +495,7 @@ a{
         size: landscape; /* standaard landscape printen */
     }
 
+
     /* elements not displayed in print */
 
     header ul {
@@ -505,6 +510,7 @@ a{
 
     h1{
         font-size: 32pt;
+        color: var(--gold);
 
     }
 
@@ -512,29 +518,35 @@ a{
         font-size: 12pt;
     }
 
+    section h2 {
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+
     /* layout */
 
     body{
+        /* background graphics overriden: bron: https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust */
+        -webkit-print-color-adjust: exact; /* kleur van scherm naar print anders iets anders, zo gaat de achtergrond kleuren ook mee */
         font-family: 'Raleway', sans-serif;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 0fr 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
         line-height: 1.3;
-        grid-row-gap: 0.5cm;
         grid-column-gap: 0.5cm;
     }
 
     body > header {
-        grid-area: 1 / 1 / 1 / 4;
         text-align: center;
+        position: fixed; /* repeat on every page */
+        top: 0;
+        left: 95mm;
     }
 
     section {
         border: solid black 1px;
         padding: 0.2cm;
+        margin-top: 2.5cm;
     }
 
-    section:last-of-type{
-        margin-top: 2cm;
-    }
 }
