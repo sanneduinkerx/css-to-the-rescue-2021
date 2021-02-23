@@ -79,6 +79,12 @@ h2 {
         z-index: 1;
     }
 
+    /* section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } */
+
+
     /*********************************/
     /* ---------- HEADER -----------*/ 
     /*******************************/
@@ -124,6 +130,50 @@ h2 {
         /* 4th child because of the filter svg */
         color: var(--gold);
         font-weight: var(--bold);
+    }
+
+
+    /**********************/
+    /* -- SVG FILTERS -- */
+
+    svg:not(section:last-of-type > svg){
+        /* anders is er een leeg vlak op de browser */
+        width: 0;
+        height: 0;
+    }
+
+    body > header h1 span:not(:nth-child(4)){
+        color: var(--gold);
+        filter: url(#outline-text); /* filter in html toegepast */
+    }
+
+    /*******************************/
+    /* ::before and ::after banner*/
+
+    body > header p::before{
+        content: "";
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        right: 80%;
+        top: 30%;
+        z-index: -1;
+        background-image: 
+        linear-gradient(to right top, transparent 50%, rgb(54, 88, 79) 50%),
+        linear-gradient(to right bottom, transparent 50%, rgb(54, 88, 79) 50%);
+    }
+
+    body > header p::after{
+        content: "";
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        left: 80%;
+        top: 30%;
+        z-index: -1;
+        background-image: 
+        linear-gradient(to left top, transparent 50%, rgb(54, 88, 79) 50%),
+        linear-gradient(to left bottom, transparent 50%, rgb(54, 88, 79) 50%);
     }
 
     /******************/
@@ -187,48 +237,6 @@ h2 {
 
     }  */
 
-    /**********************/
-    /* -- SVG FILTERS -- */
-
-    svg:not(section:last-of-type > svg){
-        /* anders is er een leeg vlak op de browser */
-        width: 0;
-        height: 0;
-    }
-
-    body > header h1 span:not(:nth-child(4)){
-        color: var(--gold);
-        filter: url(#outline-text); /* filter in html toegepast */
-    }
-
-    /*******************************/
-    /* ::before and ::after banner*/
-
-    body > header p::before{
-        content: "";
-        position: absolute;
-        width: 4rem;
-        height: 4rem;
-        right: 80%;
-        top: 30%;
-        z-index: -1;
-        background-image: 
-        linear-gradient(to right top, transparent 50%, rgb(54, 88, 79) 50%),
-        linear-gradient(to right bottom, transparent 50%, rgb(54, 88, 79) 50%);
-    }
-
-    body > header p::after{
-        content: "";
-        position: absolute;
-        width: 4rem;
-        height: 4rem;
-        left: 80%;
-        top: 30%;
-        z-index: -1;
-        background-image: 
-        linear-gradient(to left top, transparent 50%, rgb(54, 88, 79) 50%),
-        linear-gradient(to left bottom, transparent 50%, rgb(54, 88, 79) 50%);
-    }
 
     /******************************************************/
     /* ---------- MAIN SECTIONS (the courses) -----------*/ 
@@ -238,43 +246,45 @@ h2 {
     
     article{
         width: 12em;
-    padding: 1em;
+        padding: 1em;
     }
 
     section{
-    margin: 2em;
-    padding: 1em;
-    position: relative;
-    border: 1px solid white;
+        margin: 2em;
+        padding: 1em;
+        position: relative;
+        border: 1px solid white;
     }
 
     blockquote {
-    margin: 3em auto;
+     margin: 3em auto;
     }
 
     section header, section > h2{
-    width: 10rem;
-    padding: 1em;
-    margin: 0 auto;
-    text-align: center;
+        width: 10rem;
+        /* max-height: 6em; */
+        padding: 1em;
+        margin: 0 auto;
+        text-align: center;
+        /* grid-area: 1 / span 2; */
     }
 
     /* -- de gerechten - article positions -- */
 
     section article {
-    text-align: right;
-    margin: 0em 0em 0em auto;
+        text-align: right;
+        margin: 0em 0em 0em auto;
     }
 
     section article:nth-child(odd){
-    text-align: left;
-    margin: 1em;
+        text-align: left;
+        margin: 1em;
     }
 
     section article div:last-of-type {
-    width: 13px;
-    height: 13px;
-    background-color: lightgrey;
+        width: 13px;
+        height: 13px;
+        background-color: lightgrey;
     }
 
 
@@ -495,7 +505,6 @@ h2 {
         size: landscape; /* standaard landscape printen */
     }
 
-
     /* elements not displayed in print */
 
     header ul {
@@ -508,9 +517,10 @@ h2 {
 
     /* - font - */
 
+
     h1{
         font-size: 32pt;
-        color: var(--gold);
+        /* color: var(--gold); */
 
     }
 
@@ -523,11 +533,22 @@ h2 {
         text-transform: uppercase;
     }
 
+    /* Title Russ & Daughters */
+
+    body > header h1 span:not(:nth-child(4)){
+        color: var(--gold);
+        filter: url(#outline-text); /* filter in html toegepast */
+    }
+
+    body > header{
+        background-color: var(--prime-color-red);
+    }
+
     /* layout */
 
     body{
         /* background graphics overriden: bron: https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust */
-        -webkit-print-color-adjust: exact; /* kleur van scherm naar print anders iets anders, zo gaat de achtergrond kleuren ook mee */
+        -webkit-print-color-adjust: exact; /* kleur van scherm naar print anders iets anders*/
         font-family: 'Raleway', sans-serif;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
