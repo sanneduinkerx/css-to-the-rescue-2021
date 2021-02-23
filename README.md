@@ -136,17 +136,22 @@ section:first-of-type article:nth-child(3n + 2){
 
 ![](img/v1website.png)
 
-### To do's volgende week
+### Reflectie:
+Het maken van de blobs was makkelijker dan gedacht. Hetzelfde geldt voor de animaties. Ik had hier nog niet eerder mee gewerkt maar ik snapte wel snel hoe het werkt. Daarnaast heb ik zelf nog wat gespeeld met de layout en de grid, waar ik geleerd hebt over de grid-area wat handig is om aan een element mee te geven waar in de grid het element start en eindigt. Ik denk zeker dat ik vaker de animatie @keyframes ga gebruiken voor mee interactie en speling in design.
+
+
+### Uitdagingen volgende week
 - Een vormpje maken met SVG, clip-path
 - verder animeren
 - Met typografie spelen
 - banner maken bij appetizing since 1924
-- zonder media queries responsive
 
 # Week 3
 Deze week heb ik gespeeld met de svg filter en mijn ontwerp verder uitgewerkt. Ik heb ook de banner uitgewerkt.
 
-## Banner
+## Voortgang
+
+### Banner
 
 Ik had wat issues met de stack volgorde z-index, omdat ik meerdere backgroundcolors had gebruikt binnen mijn header.
 
@@ -178,7 +183,7 @@ body > header p::after{
 }
 ```
 
-## SVG filter:
+### SVG filter:
 Ik heb geleerd hoe je filters toepast op svg binnen de html, dat was compleet nieuw voor mij. En je dat in de css daar naartoe linkt.
 
 **HTML:**
@@ -202,21 +207,11 @@ Ik heb geleerd hoe je filters toepast op svg binnen de html, dat was compleet ni
 **CSS:**
 
 ```
-body > header h1 span:not(:nth-child(4)){
-    background-image: linear-gradient(45deg, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 50%, rgba(185,169,75,1) 50%, rgba(238,215,71,1) 100%);
-    background-size: 200% 200%;
-    animation-name: golden-glow;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
+ body > header h1 span:not(:nth-child(4)){
+        color: var(--gold);
+        filter: url(#outline-text); /* filter in html toegepast */
+    }
 
-    /* CUT OUT clipping: https://css-tricks.com/how-to-do-knockout-text/ */
-    background-attachment: fixed;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-
-    filter: url(#outline-text);
-}
 ```
 
 Ik had niet zo heel veel inspiratie meer dus ik had de sessie los met de heupen CSS bijgewoont. Daar kreeg ik goeie tips om een menu te maken en dan wat meer interactie binnen het ontwerp te doen. Met bijvoorbeeld :target. En misschien met clip-path afbeeldingen uit te snijden en dan bij de gerechten te plaatsen. Ook kreeg ik als idee om bij elke groep zoals Noshes een vormpje naast de titel te doen. Of met drop-shadow werken. En misschien om bij de sections dan met de grid het over elkaar te plaatsen.
@@ -229,20 +224,47 @@ En na aanleiding heb ik ook een vormpje via illustrator als svg gemaakt en in de
 
 ![](img/vormpje.png)
 
-Ik heb gekozen om in plaats van te kiezen voor de context prefers-color-scheme te gaan voor print-stylesheet. Dat leek me interessant omdat ik daar nog niet mee gewerkt hebt.
 
 ## Resultaat deze week:
 ![](img/v2resultaat.png)
 
-### To do's:
-- vormpjes maken met SVG en filter
-- vormpjes volledig css
-- meer interactie: menu maken - states
-- afbeeldingen met clip-path
-- zonder media queries responsive
-- meer animeren
-- andere dingen: :target, drop-shadow bij de blobs, grid section overlapping
+### Reflectie:
+Ik heb gekozen om in plaats van te kiezen voor de context prefers-color-scheme te gaan voor print-stylesheet. Dat leek me interessant omdat ik daar nog niet mee gewerkt hebt. Ik had niet eerder gewerkt met svg filters of filters in het algemeen dus het was compleet niet voor mij. SVG filters vond ik wel lastig omdat er veel verschillende soorten filters zijn en kost veel uitzoeken als je geen idee hebt wat het allemaal doet. Ik weet niet of ik het vaker via svg filters ga doen maar eerder ga experimenteren met de filters in css. Ik heb wel d.m.v. de filter een leuke titel kunnen maken. Ik heb ook besloten de banner zo te laten en niet nog om de titel heen te draaien dat leek me iets te druk. Ik heb ook voor het eerst ::after en ::before gebruikt. Wat ik wel een leuke manier vond om de vormpjes te maken voor de banner, ik ga dit zeker meenemen om later meer vormpjes mee te maken. Ik heb deze week ook geleerd over de background-image hoe je daar dingen mee kunt maken en wil ik ook volgende week meer mee experimenteren.
+
+<!-- Wat ging er soepel en wat was lastig.
+Welke experimenten heb je gedaan die die 'mislukt' zijn.
+Heb je nieuwe inzichten hoe je de kracht CSS kunt benutten (of juist niet).
+Neem wijzigingen aan je 1e plan op.
+Waar liggen je (nieuwe) uitdagingen voor komende week. -->
+
+### Uitdagingen komende week:
+- [ ] vormpjes maken met SVG en filter, vormpjes volledig css
+- [ ] background-image
+- [ ] menu maken - states
+- [ ] afbeeldingen met clip-path
+- [ ] zonder media queries responsive
+- [ ] print-stylesheet
+- [ ] meer animeren
+- [ ] andere dingen: :target, drop-shadow bij de blobs, grid section overlapping
+
+# Eindresultaat:
+Bekijk[hier](https://sanneduinkerx.github.io/css-to-the-rescue-2021/menu.html) de website.
+![]()
 
 # Reflectie
+<!-- Bespreek je eindresultaat. ('praatje met plaatjes').
+Wat ging er soepel , wat was lastig en waar ben je trots op.
+Welke experimenten heb je gedaan die die 'mislukt' zijn.
+Heb je nieuwe inzichten hoe je de kracht CSS kunt benutten (of juist niet).
+Waar wil je meer mee gaan doen.
 
-Waarmee geexperimenteerd, wat geleerd.
+Waarmee geexperimenteerd, wat geleerd. -->
+
+- print-stylesheet
+- custom properties
+- psuedo selectoren: ::after ::before
+- background-image
+- SVG filters
+- animeren @keyframes
+- Blobs met border-radius
+- grens opzoeken met grid
