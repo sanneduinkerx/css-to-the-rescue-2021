@@ -23,7 +23,7 @@
     --dark-beige: rgb(122, 117, 101);
     --dark-blue: rgb(54, 88, 79);
     --gold: hsl(51, 44%, 51%);
-    --background: rgb(243, 238, 232);
+    --background: rgb(235, 231, 226);
 }
 
 /************************************/
@@ -65,12 +65,18 @@ h2 {
     body{
         display: grid;
         grid-template-columns:  1fr 0fr 1fr;
+
+        /* source: https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/ */
+         /* 350px, grote van element en als grootste 1fr */
+        /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));  */
+
         row-gap: 1em;
         background-color: var(--background);
     }
     
     body > header{
-        grid-area: 1 / 2 / 4 / 2; /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+         /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+        grid-area: 1 / 2 / 7 / 2;
         height: 100vh;
         background-color: var(--prime-color-red);
         
@@ -78,12 +84,6 @@ h2 {
         top: 0;
         z-index: 1;
     }
-
-    /* section {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    } */
-
 
     /*********************************/
     /* ---------- HEADER -----------*/ 
@@ -216,7 +216,7 @@ h2 {
     /***************************/
     /* ------- STATES ------- */
 
-    /* hover */
+    /* -- hover -- */
 
     header ul li a:hover {
         background-color: var(--prime-color-red);
@@ -224,18 +224,24 @@ h2 {
         
     }
 
-    /* focus */
+    /* -- focus -- */
+    /* wanneer je door de links tabt met toetsenbord */
 
     header ul li a:focus {
         background-color: var(--prime-color-red);
         outline: none;
     }
 
-    /* :target */
+    /* -- :target -- */
+    /* het getarget element wanneer je op een link druk met #naam */
 
-    /* #noshes:target article:nth-child(3n){
+    section:target{
+        background-color: white;
+    } 
 
-    }  */
+    section:target article{
+        background-color: var(--background);
+    }
 
 
     /******************************************************/
@@ -247,6 +253,7 @@ h2 {
     article{
         width: 12em;
         padding: 1em;
+        background-color: white;
         transition-property: transform;
         transition-duration: 0.5s;
     }
@@ -264,11 +271,9 @@ h2 {
 
     section header, section > h2{
         width: 10rem;
-        /* max-height: 6em; */
         padding: 1em;
         margin: 0 auto;
         text-align: center;
-        /* grid-area: 1 / span 2; */
     }
 
     /* -- de gerechten - article positions -- */
@@ -276,8 +281,6 @@ h2 {
     section article {
         text-align: right;
         margin: 0em 0em 0em auto;
-        animation-timing-function: ease;
-        animation-iteration-count: infinite;
     }
 
     section article:nth-child(odd){
@@ -335,21 +338,25 @@ h2 {
     /* -- BLOB - gerechten -- */
 
     section article:nth-child(3n + 2){
-        background-color:white;
         border-radius: 45% 92% 40% 62% / 50% 75% 70% 90%;
     }
 
     section article:nth-child(3n + 3){
-        background-color:white;
         border-radius: 80% 60% 40% 90% / 50% 40% 70% 90%;
     }
 
     section article:nth-child(3n + 4){
-        background-color:white;
         border-radius: 50% 50% 80% 20% / 40% 60% 40% 60%;
     }
 
-    /* -- Blobs - moving -- */
+    /* -- Blobs - moving - hover -- */
+
+    section:hover article{
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        /* blend mode: wanneer articles over elkaar heen gaan is de blending het verschil, kleuren worden omgedraait */
+        mix-blend-mode: difference; 
+    }
 
     section:hover article:nth-child(3n + 2){
         animation-name: blob-transform-1;
@@ -365,7 +372,6 @@ h2 {
         animation-name: blob-transform-3;
         animation-duration: 20s;
     }
-
 
     /*********************************/
     /* --------- VORMPJES --------- */
@@ -469,21 +475,28 @@ h2 {
 
     /* -- blob gerechten bewegen van plaats -- */
 
+    /* -- custom properties --  */
+
+    section article {
+        --translate-small: 4rem;
+        --translate-big: 8rem;
+    }
+
     @keyframes blob-transform-1 {
         0% {
             transform: translateX(0rem);
         }
 
         25%{
-            transform: translateX(2rem);
+            transform: translateX(var(--translate-small));
         }
     
         50% {
-            transform: translateY(6rem);
+            transform: translateY(var(--translate-big));
         } 
         
         75% {
-            transform: translateX(2rem);
+            transform: translateX(var(--translate-small));
         }
 
         100% {
@@ -497,15 +510,15 @@ h2 {
         }
 
         25%{
-            transform: translateY(6rem);
+            transform: translateY(var(--translate-big));
         }
 
         50% {
-            transform: translateX(2rem);
+            transform: translateX(var(--translate-small));
         } 
         
         75% {
-            transform: translateY(6rem);
+            transform: translateY(var(--translate-big));
         }
 
         100% {
@@ -519,15 +532,15 @@ h2 {
         }
 
         25%{
-            transform: translateY(3rem);
+            transform: translateY(calc(var(--translate-big) / 2 ));
         }
 
         50% {
-            transform: translateX(3rem);
+            transform: translateX(calc(var(--translate-big) / 2 ));
         } 
         
         75% {
-            transform: translateY(3rem);
+            transform: translateY(calc(var(--translate-big) / 2 ));
         }
 
         100% {
