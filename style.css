@@ -247,6 +247,8 @@ h2 {
     article{
         width: 12em;
         padding: 1em;
+        transition-property: transform;
+        transition-duration: 0.5s;
     }
 
     section{
@@ -274,6 +276,8 @@ h2 {
     section article {
         text-align: right;
         margin: 0em 0em 0em auto;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
     }
 
     section article:nth-child(odd){
@@ -347,12 +351,21 @@ h2 {
 
     /* -- Blobs - moving -- */
 
-    section:first-of-type:hover article:nth-child(3n + 2){
-        animation-name: blob-transform;
-        animation-timing-function: ease;
+    section:hover article:nth-child(3n + 2){
+        animation-name: blob-transform-1;
         animation-duration: 20s;
-        animation-iteration-count: infinite;
     }
+
+    section:hover article:nth-child(3n + 1){
+        animation-name: blob-transform-2;
+        animation-duration: 15s;
+    }
+
+    section:hover article:nth-child(3n){
+        animation-name: blob-transform-3;
+        animation-duration: 20s;
+    }
+
 
     /*********************************/
     /* --------- VORMPJES --------- */
@@ -406,19 +419,6 @@ h2 {
     /* -------- ANIMATIONS -------- */
     /*******************************/
 
-    /* -- RUSS title -- */
-
-
-    @keyframes golden-glow {
-        0% {
-            background-position: left;
-        } 
-        100% {
-            background-position: right top;
-        }
-    }
-
-
     /* -- blob header in sections -- */
 
     @keyframes blob-move-1 {
@@ -469,7 +469,7 @@ h2 {
 
     /* -- blob gerechten bewegen van plaats -- */
 
-    @keyframes blob-transform {
+    @keyframes blob-transform-1 {
         0% {
             transform: translateX(0rem);
         }
@@ -491,8 +491,52 @@ h2 {
         }
     }
 
-}
+    @keyframes blob-transform-2 {
+        0% {
+            transform: translateY(0rem);
+        }
 
+        25%{
+            transform: translateY(6rem);
+        }
+
+        50% {
+            transform: translateX(2rem);
+        } 
+        
+        75% {
+            transform: translateY(6rem);
+        }
+
+        100% {
+            transform: translateY(0rem);
+        }
+    }
+
+    @keyframes blob-transform-3 {
+        0% {
+            transform: translateX(0rem);
+        }
+
+        25%{
+            transform: translateY(3rem);
+        }
+
+        50% {
+            transform: translateX(3rem);
+        } 
+        
+        75% {
+            transform: translateY(3rem);
+        }
+
+        100% {
+            transform: translateX(0rem);
+        }
+    }
+
+
+}
 
 /****************************************/
 /* -------- print-style sheet -------- */
@@ -517,11 +561,8 @@ h2 {
 
     /* - font - */
 
-
     h1{
         font-size: 32pt;
-        /* color: var(--gold); */
-
     }
 
     p {
@@ -538,10 +579,6 @@ h2 {
     body > header h1 span:not(:nth-child(4)){
         color: var(--gold);
         filter: url(#outline-text); /* filter in html toegepast */
-    }
-
-    body > header{
-        background-color: var(--prime-color-red);
     }
 
     /* layout */
@@ -569,5 +606,4 @@ h2 {
         padding: 0.2cm;
         margin-top: 2.5cm;
     }
-
 }
