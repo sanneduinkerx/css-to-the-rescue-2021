@@ -13,7 +13,7 @@ Voor dit vak ga ik experimenteren met de mogelijkheden voor CSS. Voor de eindopd
 - [Week 2](#Week-2)
 - [Week 3](#Week-3)
 - [Week 4](#Week-4)
-- [Eindresultaat en Reflectie op proces 📋](#Eindresultaat-&-reflectie-op-proces:)
+- [Eindresultaat en Reflectie op proces](#Eindresultaat-&-reflectie-op-proces)
 - [Bronnen](#Bronnen) 
 
 # Week 1:
@@ -199,7 +199,7 @@ Ik heb gekozen om in plaats van te kiezen voor de context prefers-color-scheme t
 # Week 4 
 Ik heb als laatste een navigatie toegepast die je terug vind in het eindresultaat, de navigatie activeert :target wat ik voor het eerst gebruikt hebt hiermee verander ik de styling zodra de gebruiker de navigatie gebruikt. De navigatie elementen bevat een hover en is actief met het toetsenbord. De navigatie bar heb ik zo gepositioneerd in een grid en is te zien aan beide kanten, ik heb het gedraait met writing-mode. Daarnaast heb ik blendmode gebruikt wanneer je over een section hovert en keren de kleuren om zodra de elementen over elkaar heen bewegen. Met :target wordt het blenden nog meer toegepast. Als laatste heb ik door middel van svg shapes in html vormpjes gemaakt zoals het bord bij het eerste gangen menu.
 
-# Eindresultaat & reflectie op proces:
+# Eindresultaat & reflectie op proces
 Bekijk [hier](https://sanneduinkerx.github.io/css-to-the-rescue-2021/menu.html) de website.
 
 ![](img/frontpage.png)
