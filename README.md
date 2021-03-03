@@ -7,6 +7,15 @@ Voor dit vak ga ik experimenteren met de mogelijkheden voor CSS. Voor de eindopd
 - experimenteren met grid/layout
 - animeren met keyframes
 
+## Table of contents
+
+- [Week 1](#Week-1)
+- [Week 2](#Week-2)
+- [Week 3](#Week-3)
+- [Week 4](#Week-4)
+- [Eindresultaat en Reflectie op proces 📋](#Eindresultaat-&-reflectie-op-proces:)
+- [Bronnen](#Bronnen) 
+
 # Week 1:
 In deze week heb ik een keuze gemaakt waar ik mee wil experimenteren, de menu kaart. Ik heb eerst een pinterestbord gemaakt om wat inspiratie op te doen als beginpunt. [Pinterest bord is hier de vinden](https://nl.pinterest.com/sanneduinker/css-to-the-rescue/)
 
@@ -190,10 +199,10 @@ Ik heb gekozen om in plaats van te kiezen voor de context prefers-color-scheme t
 # Week 4 
 Ik heb als laatste een navigatie toegepast die je terug vind in het eindresultaat, de navigatie activeert :target wat ik voor het eerst gebruikt hebt hiermee verander ik de styling zodra de gebruiker de navigatie gebruikt. De navigatie elementen bevat een hover en is actief met het toetsenbord. De navigatie bar heb ik zo gepositioneerd in een grid en is te zien aan beide kanten, ik heb het gedraait met writing-mode. Daarnaast heb ik blendmode gebruikt wanneer je over een section hovert en keren de kleuren om zodra de elementen over elkaar heen bewegen. Met :target wordt het blenden nog meer toegepast. Als laatste heb ik door middel van svg shapes in html vormpjes gemaakt zoals het bord bij het eerste gangen menu.
 
-# Eindresultaat & reflectie op vak:
-Bekijk[hier](https://sanneduinkerx.github.io/css-to-the-rescue-2021/menu.html) de website.
-![](img/frontpage.png)
+# Eindresultaat & reflectie op proces:
+Bekijk [hier](https://sanneduinkerx.github.io/css-to-the-rescue-2021/menu.html) de website.
 
+![](img/frontpage.png)
 
 Tijdens het vak heb ik heel veel nieuwe css technieken geleerd waarvan ik niet eens wist dat ze er waren. Hiermee kan ik zeker in de toekomst meer mee doen en vond het erg leuk met die technieken te experimenteren. Ik ben tevreden over mijn eindresultaat en dat de layout ook goed gelukt is zoals ik het wilde. Ik ben wijzer geworden hoe ik met display: grid kan werk en de techniek grid-area dit koste me wat tijd om uit te vogelen waar bijvoorbeeld de header dan moest staan. Ik ben trots op de look and feel van de website hoe de header sticky is en blijft staan bij scrollen en dat je mooi kan navigeren aan beide kanten van de header met een mooie hover en :target.
 
@@ -217,6 +226,10 @@ Om met SVG te werken vond ik wel lastig en ook niet alles is gelukt, ik wilde me
 De media print was een context waarvan ik niet wist dat je dat ook kon stylen, daarom heb ik gekozen om dat ook uit te proberen. Dit heb ik toegepast en je kunt de menu kaart uitprinten met een print style.  k heb goede tips over de print functie gelezen via [Smashing Magazine](https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/#top) en sommige toegepast.
 
 ![](img/print.png)
+
+Waar ik ook veel moeite mee had was responsive zonder media queries omdat ik ook gebruik maak van een vaste grid-area was dat erg lastig met de minmax() en moest ook bepaalde dingen veranderen in de area. Het is niet tot de grens responsive maar als je het kleiner maakt gaan alle gerechten onder elkaar aan de linkerkant, de navigatie blijft rechts, wat ik zelf niet heel mooi vind.
+
+![](img/responsive.png)
 
 # Bronnen
 - Print style sheet - [Smashing Magazine](https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/#top)
